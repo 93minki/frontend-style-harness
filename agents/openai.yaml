@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Style Harness"
+  short_description: "Generate a personal frontend coding harness"
+  default_prompt: "Use $frontend-style-harness to create a project-local React, Next.js, TypeScript, and TailwindCSS style harness."
+policy:
+  allow_implicit_invocation: true
+
