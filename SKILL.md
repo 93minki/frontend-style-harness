@@ -17,6 +17,8 @@ The generated harness teaches Codex and/or Claude Code how to write React, Next.
 - Do not read the current project before the user approves reading it.
 - Do not create or edit files before the user approves the final file plan.
 - Never overwrite existing files automatically.
+- Run the interview in small topic groups. Never ask the full style questionnaire in one message.
+- Show concrete, friendly code examples for style choices. Prefer "Which example is closer?" over abstract labels.
 - Keep `AGENTS.md` and `CLAUDE.md` short. They are entry points, not full style guides.
 - Put detailed style rules in the generated local skill.
 - Put concrete code style examples in `ai-style-examples/`.
@@ -35,7 +37,12 @@ The generated harness teaches Codex and/or Claude Code how to write React, Next.
 4. Ask whether you may inspect the current project.
    - If yes, check existing `AGENTS.md`, `CLAUDE.md`, `ai-style-examples/`, `.codex/skills/`, `.claude/skills/`, and a small sample of frontend source files.
    - If no, continue from interview answers only.
-5. Run the interview from `references/interview-flow.md`.
+5. Run the staged interview from `references/interview-flow.md`.
+   - Ask the opening/setup questions first.
+   - Then ask one topic group at a time: TypeScript, React structure, state/data, TailwindCSS, splitting boundaries, and code samples.
+   - Ask at most 3-4 selectable questions in a turn.
+   - Ask at most one required code sample in a turn unless the user explicitly asks for a one-shot interview.
+   - Briefly summarize what was learned before moving to the next topic group.
 6. Analyze answers and samples using `references/generation-rules.md`.
 7. Apply the safety rules in `references/file-policy.md`.
 8. Present a generation summary:
@@ -75,4 +82,3 @@ Use these as starting points. Adapt them to the user's confirmed style and langu
 - `assets/templates/examples/client-component.tsx`
 - `assets/templates/examples/component-splitting.md`
 - `assets/templates/examples/bad-vs-good.md`
-
